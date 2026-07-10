@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TFP Employé de site de loisirs et de culture — certification CPNEF ELAC dispensée par Benjamin Chevalier. Avenant n°75 du 4 décembre 2025, IDCC 1790.">
+  <meta name="theme-color" content="#fafaf7">
+  <title>Formation TFP — Benjamin Chevalier</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 300; color: #0a0a0a; background: #fafaf7; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; transition: opacity 0.3s ease; }
+    a:hover { opacity: 0.6; }
+
+    /* HEADER */
+    .site-header { position: sticky; top: 0; z-index: 100; background: rgba(250, 250, 247, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 0.5px solid rgba(0, 0, 0, 0.06); }
+    .site-header__inner { max-width: 1200px; margin: 0 auto; padding: 24px 40px; display: flex; justify-content: space-between; align-items: center; }
+    .site-header__brand { font-size: 11px; font-weight: 400; letter-spacing: 4px; }
+    .site-header__nav { display: flex; gap: 32px; }
+    .site-header__nav a { font-size: 11px; font-weight: 400; letter-spacing: 2px; color: #4a4a4a; }
+    .site-header__nav a.active { color: #0a0a0a; }
+
+    /* HERO */
+    .hero { max-width: 1080px; margin: 0 auto; padding: 120px 40px 80px; }
+    .hero__eyebrow { font-size: 10px; letter-spacing: 4px; color: #9a9a9a; margin-bottom: 32px; }
+    .hero__title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(36px, 6vw, 64px); font-weight: 300; line-height: 1.15; max-width: 880px; letter-spacing: -0.4px; }
+    .hero__lead { max-width: 600px; font-size: 16px; font-weight: 300; color: #4a4a4a; line-height: 1.8; margin-top: 40px; }
+    .hero__certif { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 40px; padding: 14px 20px; border: 0.5px solid rgba(0, 0, 0, 0.15); font-size: 11px; letter-spacing: 2px; color: #4a4a4a; }
+    .hero__certif strong { color: #0a0a0a; font-weight: 500; }
+
+    /* SECTION */
+    .section { padding: 90px 40px; }
+    .section--white { background: #ffffff; }
+    .section--dark { background: #0a0a0a; color: #ffffff; }
+    .section__inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 180px 1fr; gap: 60px; }
+    .section__label { font-size: 10px; font-weight: 400; letter-spacing: 4px; color: #9a9a9a; padding-top: 4px; line-height: 1.6; }
+    .section--dark .section__label { color: #888888; }
+    .section__heading { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(28px, 4vw, 40px); font-weight: 300; line-height: 1.2; margin-bottom: 28px; letter-spacing: -0.3px; }
+    .section__body { font-size: 15px; font-weight: 300; color: #4a4a4a; line-height: 1.85; max-width: 720px; }
+    .section--dark .section__body { color: #cccccc; }
+    .section__body p + p { margin-top: 20px; }
+
+    /* ARCHITECTURE */
+    .arch { max-width: 720px; margin-top: 32px; }
+    .arch__row { display: grid; grid-template-columns: 1fr auto auto; gap: 24px; align-items: baseline; padding: 16px 0; border-bottom: 0.5px solid rgba(0, 0, 0, 0.08); font-size: 14px; }
+    .arch__row--total { border-top: 0.5px solid rgba(0, 0, 0, 0.4); border-bottom: none; padding-top: 22px; margin-top: 8px; font-weight: 500; }
+    .arch__name { color: #0a0a0a; }
+    .arch__hours { color: #6b6b6b; font-size: 13px; min-width: 60px; text-align: right; }
+    .arch__status { font-size: 10px; letter-spacing: 2px; color: #9a9a9a; min-width: 100px; text-align: right; }
+
+    /* SUBSECTION */
+    .subsection { margin-top: 56px; }
+    .subsection:first-child { margin-top: 0; }
+    .subsection__title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 26px; font-weight: 400; margin-bottom: 8px; color: #0a0a0a; }
+    .subsection__meta { font-size: 11px; letter-spacing: 3px; color: #9a9a9a; margin-bottom: 28px; }
+
+    /* ACCORDEON */
+    details { border-bottom: 0.5px solid rgba(0, 0, 0, 0.1); }
+    details:first-of-type { border-top: 0.5px solid rgba(0, 0, 0, 0.1); }
+    summary { cursor: pointer; list-style: none; padding: 22px 0; display: grid; grid-template-columns: 48px 1fr 80px 24px; gap: 16px; align-items: baseline; transition: padding 0.3s ease; }
+    summary::-webkit-details-marker { display: none; }
+    summary:hover { padding-left: 6px; }
+    .module-num { font-size: 10px; letter-spacing: 2px; color: #9a9a9a; }
+    .module-title { font-size: 15px; font-weight: 500; color: #0a0a0a; }
+    .module-hours { font-size: 11px; letter-spacing: 2px; color: #6b6b6b; text-align: right; }
+    .module-toggle { font-size: 18px; font-weight: 200; color: #6b6b6b; text-align: center; transition: transform 0.3s ease; }
+    details[open] .module-toggle { transform: rotate(45deg); }
+    .module-body { padding: 0 0 28px 64px; }
+    .module-body h4 { font-size: 10px; letter-spacing: 3px; color: #9a9a9a; font-weight: 400; margin: 4px 0 12px; }
+    .module-body ul { list-style: none; font-size: 14px; font-weight: 300; color: #4a4a4a; line-height: 1.9; margin-bottom: 24px; }
+    .module-body ul li::before { content: "—"; color: #c0c0c0; margin-right: 12px; }
+    .module-body ul:last-child { margin-bottom: 0; }
+
+    .tag-new { display: inline-block; font-size: 9px; letter-spacing: 2px; color: #0a0a0a; background: #f5e8b0; padding: 3px 8px; margin-left: 12px; vertical-align: middle; }
+
+    /* OPTIONS */
+    .options-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    .option-card { border: 0.5px solid rgba(0, 0, 0, 0.12); padding: 32px; background: #ffffff; }
+    .option-card__head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+    .option-card__label { font-size: 10px; letter-spacing: 3px; color: #9a9a9a; }
+    .option-card__hours { font-size: 11px; letter-spacing: 2px; color: #6b6b6b; }
+    .option-card__title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 26px; font-weight: 400; margin-bottom: 20px; color: #0a0a0a; }
+    .option-card details:first-of-type { border-top: 0.5px solid rgba(0,0,0,0.1); }
+
+    /* DUO */
+    .duo { display: grid; grid-template-columns: repeat(2, 1fr); gap: 60px; max-width: 820px; }
+    .duo__item h3 { font-size: 11px; letter-spacing: 3px; color: #888888; font-weight: 400; margin-bottom: 16px; }
+    .duo__item ul { list-style: none; font-size: 14px; font-weight: 300; color: #cccccc; line-height: 2; }
+    .duo__item ul li::before { content: "—"; color: #555; margin-right: 12px; }
+
+    /* FINANCEMENT */
+    .funding { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 32px; }
+    .funding__item { padding: 20px; background: #fafaf7; border: 0.5px solid rgba(0, 0, 0, 0.08); }
+    .funding__name { font-size: 11px; letter-spacing: 2px; color: #0a0a0a; font-weight: 500; margin-bottom: 8px; }
+    .funding__desc { font-size: 12px; font-weight: 300; color: #6b6b6b; line-height: 1.6; }
+
+    /* CTA */
+    .cta { max-width: 720px; margin: 0 auto; text-align: center; padding: 40px 0; }
+    .cta__title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(28px, 4vw, 40px); font-weight: 300; margin-bottom: 24px; letter-spacing: -0.2px; }
+    .cta__text { font-size: 14px; font-weight: 300; color: #6b6b6b; line-height: 1.8; margin-bottom: 40px; }
+    .button { display: inline-block; font-size: 12px; font-weight: 400; letter-spacing: 3px; color: #ffffff; background: #0a0a0a; border: 0.5px solid #0a0a0a; padding: 18px 36px; transition: all 0.3s ease; }
+    .button:hover { background: transparent; color: #0a0a0a; opacity: 1; }
+
+    /* FOOTER */
+    .site-footer { background: #0a0a0a; color: #888888; padding: 80px 40px 48px; text-align: center; }
+    .site-footer__logo { width: 200px; margin: 0 auto 32px; display: block; }
+    .site-footer__copy { font-size: 10px; letter-spacing: 3px; }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .site-header__inner { padding: 20px 24px; }
+      .site-header__nav { gap: 18px; }
+      .site-header__nav a { font-size: 10px; letter-spacing: 1.5px; }
+      .hero { padding: 70px 24px 50px; }
+      .section { padding: 60px 24px; }
+      .section__inner { grid-template-columns: 1fr; gap: 32px; }
+      .section__label { padding-top: 0; }
+      summary { grid-template-columns: 36px 1fr 60px 20px; gap: 10px; padding: 18px 0; }
+      summary:hover { padding-left: 0; }
+      .module-body { padding: 0 0 24px 46px; }
+      .duo { grid-template-columns: 1fr; gap: 36px; }
+      .option-card { padding: 24px; }
+      .arch__row { grid-template-columns: 1fr auto; }
+      .arch__status { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="index.html" class="site-header__brand">BENJAMIN CHEVALIER</a>
+      <nav class="site-header__nav">
+        <a href="index.html#projets">PROJETS</a>
+        <a href="formation.html" class="active">FORMATION</a>
+        <a href="index.html#contact">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero__eyebrow">TFP · CERTIFICATION CPNEF ELAC</div>
+    <h1 class="hero__title">Employé de site<br>de loisirs et de culture.</h1>
+    <p class="hero__lead">
+      Le titre à finalité professionnelle créé par l'Avenant n°75 du 4 décembre 2025 à la Convention Collective Nationale ELAC, dispensé par un opérateur qui exerce le métier quotidiennement et préside l'association française du secteur.
+    </p>
+    <div class="hero__certif">
+      <span><strong>235 H</strong> · TRONC COMMUN + 1 OPTION</span>
+      <span>·</span>
+      <span>ÉCHELON I — CCN ELAC (IDCC 1790)</span>
+    </div>
+  </section>
+
+  <section class="section section--white">
+    <div class="section__inner">
+      <div class="section__label">CONTEXTE</div>
+      <div>
+        <h2 class="section__heading">Une certification créée<br>par les acteurs du secteur,<br>pour les métiers qui le font tourner.</h2>
+        <div class="section__body">
+          <p>Le TFP « Employé de site de loisirs et de culture » a été élaboré par les partenaires sociaux de la branche ELAC — SNELAC, SNDLL, SPACE, SLA et les organisations syndicales — pour qualifier les compétences communes aux métiers du secteur et permettre une spécialisation reconnue dans l'animation, la restauration ou la vente.</p>
+          <p>Le programme est conforme au référentiel de la CPNEF ELAC. Il est positionné à l'échelon I, niveau II, coefficient 175 de la grille de classification de la CCN ELAC (IDCC 1790), et peut être financé par OPCO, CPF, plan de développement des compétences, fonds conventionnels ou France Travail.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section__inner">
+      <div class="section__label">ARCHITECTURE</div>
+      <div>
+        <h2 class="section__heading">Tronc commun obligatoire,<br>une option spécialisée minimum.</h2>
+        <div class="arch">
+          <div class="arch__row"><span class="arch__name">Bloc 1 — Accueillir et orienter les visiteurs</span><span class="arch__hours">60 h</span><span class="arch__status">OBLIGATOIRE</span></div>
+          <div class="arch__row"><span class="arch__name">Bloc 2 — Veiller à la qualité des espaces</span><span class="arch__hours">60 h</span><span class="arch__status">OBLIGATOIRE</span></div>
+          <div class="arch__row"><span class="arch__name">Module transversal — Équipe, posture, numérique</span><span class="arch__hours">30 h</span><span class="arch__status">OBLIGATOIRE</span></div>
+          <div class="arch__row"><span class="arch__name">Option A — Animation et supervision d'attractions</span><span class="arch__hours">70 h</span><span class="arch__status">1 MINIMUM</span></div>
+          <div class="arch__row"><span class="arch__name">Option B — Service en restauration rapide</span><span class="arch__hours">70 h</span><span class="arch__status">1 MINIMUM</span></div>
+          <div class="arch__row"><span class="arch__name">Option C — Vente en site de loisirs</span><span class="arch__hours">70 h</span><span class="arch__status">1 MINIMUM</span></div>
+          <div class="arch__row"><span class="arch__name">Module certification et évaluation</span><span class="arch__hours">15 h</span><span class="arch__status">OBLIGATOIRE</span></div>
+          <div class="arch__row arch__row--total"><span class="arch__name">Parcours complet avec une option</span><span class="arch__hours">235 h</span><span class="arch__status"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOC 1 -->
+  <section class="section section--white">
+    <div class="section__inner">
+      <div class="section__label">BLOC 1<br>60 H</div>
+      <div>
+        <div class="subsection">
+          <div class="subsection__title">Accueillir et orienter les visiteurs</div>
+          <div class="subsection__meta">5 MODULES · OBLIGATOIRE</div>
+
+          <details>
+            <summary><span class="module-num">1.1</span><span class="module-title">Connaissance du secteur ELAC</span><span class="module-hours">10 H</span><span class="module-toggle">+</span></summary>
+            <div class="module-body">
+              <h4>OBJECTIFS</h4>
+              <ul><li>Comprendre l'environnement économique et réglementaire des espaces de loisirs, d'attractions et culturels</li><li>Identifier les différentes typologies de sites et leurs spécificités</li><li>Situer son rôle et ses missions dans l'organisation</li></ul>
+              <h4>CONTENUS</h4>
+              <ul><li>Panorama du secteur ELAC en France : chiffres clés, acteurs, tendances</li><li>Convention Collective Nationale ELAC (IDCC 1790)</li><li>Typologie des établissements : parcs de loisirs indoor, parcs d'attractions, musées, centres culturels</li><li>Organisation et fonctionnement d'un site de loisirs</li><li>Rôle et missions de l'employé de site</li><li>Déontologie et image de la structure</li></ul>
+            </div>
+          </details>
+
+          <details>
+            <summary><span class="module-num">1.2</span><span class="module-title">Techniques d'accueil</span><span class="module-hours">15 H</span><span class="module-toggle">+</span></summary>
+            <div class="module-body">
+              <h4>OBJECTIFS</h4>
+              <ul><li>Maîtriser les techniques d'accueil physique et téléphonique</li><li>Adopter une posture professionnelle et bienveillante</li><li>Représenter l'image de l'établissement</li></ul>
+              <h4>CONTENUS</h4>
+              <ul><li>Techniques d'accueil physique : posture, présentation, sourire</li><li>Accueil téléphonique : protocole, formules, gestion des appels</li><li>Communication verbale et non verbale</li><li>Écoute active et reformulation</li><li>Gestion des premiers contacts et prise en charge des visiteurs</li><li>Image de marque et représentation de l'établissement</li></ul>
+            </div>
+          </details>
+
+          <details>
+            <summary><span class="module-num">1.3</span><span class="module-title">Gestion des flux et orientation</span><span class="module-hours">10 H</span><span class="module-toggle">+</span></summary>
+            <div class="module-body">
+              <h4>OBJECTIFS</h4>
+              <ul><li>Organiser et fluidifier les parcours visiteurs</li><li>Informer et orienter efficacement les publics</li><li>Anticiper et gérer les pics d'affluence</li></ul>
+              <h4>CONTENUS</h4>
+              <ul><li>Analyse des flux de visiteurs</li><li>Techniques d'orientation et de signalétique</li><li>Gestion des files d'attente</li><li>Information sur les offres, tarifs et services</li><li>Utilisation des outils numériques d'information</li><li>Anticipation et gestion des pics d'affluence</li></ul>
+            </div>
+          </details>
+
+          <details>
+            <summary><span class="module-num">1.4</span><span class="module-title">Accueil des publics spécifiques et inclusion</span><span class="module-hours">15 H</span><span class="module-toggle">+</span></summary>
+            <div class="module-body">
+              <h4>OBJECTIFS</h4>
+              <ul><li>Accueillir tous les publics dans leur diversité</li><li>Adapter sa communication aux besoins spécifiques</li><li>Garantir une expérience inclusive pour tous</li></ul>
+              <h4>CONTENUS</h4>
+              <ul><li>Accueil des personnes en situation de handicap (moteur, sensoriel, mental, psychique)</li><li>Accueil des familles et groupes scolaires</li><li>Accueil des seniors et personnes à mobilité réduite</li><li>Accueil des publics internationaux</li><li>Adaptation de la communication selon les publics</li><li>Principes de l'accessibilité universelle</li><li>Sensibilisation aux discriminations et à l'inclusion</li></ul>
+            </div>
+          </details>
+
+          <details>
+            <summary><span class="module-num">1.5</span><span class="module-title">Communication interculturelle</span><span class="module-hours">10 H</span><span class="module-toggle">+</span></summary>
+            <div class="module-body">
+              <h4>OBJECTIFS</h4>
+              <ul><li>Communiquer avec des visiteurs internationaux</li><li>Maîtriser les bases linguistiques de l'accueil</li><li>Adapter son approche aux différences culturelles</li></ul>
+              <h4>CONTENUS</h4>
+              <ul><li>Bases d'anglais appliqué à l'accueil (vocabulaire, expressions courantes)</li><li>Notions de communication interculturelle</li><li>Gestion des barrières linguistiques</li><li>Utilisation des outils de traduction</li><li>Codes culturels et adaptations comportementales</li></ul>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOC 2 -->
+  <section class="section">
+    <div class="section__inner">
+      <div class="section__label">BLOC 2<br>60 H</div>
+      <div>
+        <div class="subsection">
+          <div class="subsection__title">Veiller à la qualité des espaces</div>
+          <div class="subsection__meta">5 MODULES · OBLIGATOIRE</div>
+
+          <details>
+            <summary><span class="module-num">2.1</span><span class="module-title">Sécurité des personnes et des installations</span><span class="module-hours">20 H</span><span class="module-toggle">+</span></summary>
+            <div class="module-body">
+              <h4>OBJECTIFS</h4>
+              <ul><li>Appliquer les règles de sécurité en vigueur</li><li>Prévenir les risques liés à l'activité</li><li>Réagir de manière appropriée en cas d'incident</li></ul>
+              <h4>CONTENUS</h4>
+              <ul><li>Réglementation générale en matière de sécurité des ERP</li><li>Sécurité des publics : surveillance, vigilance, signalement</li><li>Sécurité des installations et équipements</li><li>Procédures d'urgence : évacuation, confinement</li><li>Rôle de l'employé dans la chaîne de sécurité</li><li>Signalement et traçabilité des incidents</li><li>Registres et documents obligatoires</li></ul>
+            </div>
+          </details>
+
+          <details>
+            <summary><span class="module-num">2.2</span><span class="module-title">Hygiène et entretien des espaces</span><span class="module-hours">10 H</span><span class="module-toggle">+</span></summary>
+            <div class="module-body">
+              <h4>OBJECTIFS</h4>
+              <ul><li>Maintenir les espaces propres et accueillants</li><li>Appliquer les protocoles d'hygiène</li><li>Contribuer à la qualité de l'expérience visiteur</li></ul>
+              <h4>CONTENUS</h4>
+              <ul><li>Normes d'hygiène applicables aux sites de loisirs</li><li>Protocoles de nettoyage et désinfection</li><li>Gestion des produits d'entretien</li><li>Organisation de l'entretien courant</li><li>Contrôle de la propreté des espaces</li><li>Gestion des déchets</li></ul>
+            </div>
+          </details>
+
+          <details>
+            <summary><span class="module-num">2.3</span><span class="module-title">Prévention des risques et premiers secours</span><span class="module-hours">15 H</span><span class="module-toggle">+</span></summary>
+            <div class="module-body">
+              <h4>OBJECTIFS</h4>
+              <ul><li>Identifier et prévenir les risques</li><li>Porter assistance en cas d'urgence</li><li>Obtenir la certification PSC1</li></ul>
+              <h4>CONTENUS</h4>
+              <ul><li>Identification des risques professionnels</li><li>Prévention des risques incendie</li><li>Manipulation des extincteurs</li><li>Formation PSC1 — Prévention et Secours Civiques niveau 1 (7 h)</li><li>Gestion des situations d'urgence</li><li>Alerte et communication avec les secours</li></ul>
+            </div>
+          </details>
+
+          <details>
+            <summary><span class="module-num">2.4</span><span class="module-title">RSE et transition écologique</span><span class="module-hours">10 H</span><span class="module-toggle">+</span></summary>
+            <div class="module-body">
+              <h4>OBJECTIFS</h4>
+              <ul><li>Comprendre les enjeux du développement durable dans le secteur</li><li>Appliquer les bonnes pratiques environnementales</li><li>Contribuer à la démarche RSE de l'établissement</li></ul>
+              <h4>CONTENUS</h4>
+              <ul><li>Enjeux environnementaux du secteur des loisirs</li><li>Responsabilité Sociétale des Entreprises (RSE)</li><li>Gestion responsable des ressources (eau, énergie)</li><li>Tri et réduction des déchets</li><li>Éco-gestes au quotidien</li><li>Communication sur les engagements environnementaux</li><li>Labels et certifications environnementales</li></ul>
+            </div>
+          </details>
+
+          <details>
+            <summary><span class="module-num">2.5</span><span class="module-title">Inclusion et accessibilité</span><span class="module-hours">5 H</span><span class="module-toggle">+</span></summary>
+            <div class="module-body">
+              <h4>OBJECTIFS</h4>
+              <ul><li>Garantir l'accessibilité des espaces à tous</li><li>Appliquer les principes de conception universelle</li><li>Sensibiliser aux enjeux de l'inclusion</li></ul>
+              <h4>CONTENUS</h4>
+              <ul><li>Réglementation sur l'accessibilité des ERP</li><li>Principes de la conception universelle</li><li>Aménagements et équipements adaptés</li><li>Sensibilisation au handicap invisible</li><li>Bonnes pratiques d'inclusion</li></ul>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSVERSAL -->
+  <section class="section section--white">
+    <div class="section__inner">
+      <div class="section__label">TRANSVERSAL<br>30 H</div>
+      <div>
+        <div class="subsection">
+          <div class="subsection__title">Équipe, posture, numérique</div>
+          <div class="subsection__meta">3 MODULES · OBLIGATOIRE</div>
+
+          <details>
+            <summary><span class="module-num">T.1</span><span class="module-title">Organisation et communication interne</span><span class="module-hours">10 H</span><span class="module-toggle">+</span></summary>
+            <div class="module-body">
+              <h4>OBJECTIFS</h4>
+              <ul><li>Travailler efficacement en équipe</li><li>Communiquer avec les différents services</li><li>Transmettre les informations de manière fiable</li></ul>
+              <h4>CONTENUS</h4>
+              <ul><li>Organisation du travail en équipe</li><li>Outils de communication interne</li><li>Transmission des consignes et informations</li><li>Relations avec la hiérarchie</li><li>Coopération avec les collègues</li><li>Réunions et briefings d'équipe</li></ul>
+            </div>
+          </details>
+
+          <details>
+            <summary><span class="module-num">T.2</span><span class="module-title">Posture professionnelle</span><span class="module-hours">10 H</span><span class="module-toggle">+</span></summary>
+            <div class="module-body">
+              <h4>OBJECTIFS</h4>
+              <ul><li>Adopter une posture professionnelle adaptée</li><li>Gérer son stress et ses priorités</li><li>Développer ses compétences relationnelles</li></ul>
+              <h4>CONTENUS</h4>
+              <ul><li>Savoir-être et savoir-faire professionnels</li><li>Gestion du stress en situation de travail</li><li>Gestion des priorités et organisation personnelle</li><li>Gestion des situations conflictuelles</li><li>Développement de l'assertivité</li><li>Respect du cadre professionnel</li></ul>
+            </div>
+          </details>
+
+          <details>
+            <summary><span class="module-num">T.3</span><span class="module-title">Outils numériques et digitalisation<span class="tag-new">NOUVEAU</span></span><span class="module-hours">10 H</span><span class="module-toggle">+</span></summary>
+            <div class="module-body">
+              <h4>OBJECTIFS</h4>
+              <ul><li>Maîtriser les outils numériques courants du secteur</li><li>Comprendre la digitalisation du parcours visiteur</li><li>Contribuer à la stratégie digitale de l'établissement</li></ul>
+              <h4>CONTENUS</h4>
+              <ul><li>Solutions de billetterie en ligne et de e-réservation</li><li>Systèmes de caisse connectés et encaissement digital</li><li>Gestion des avis en ligne (Google, TripAdvisor) et e-réputation</li><li>CRM et programmes de fidélité digitaux</li><li>Bornes interactives et signalétique numérique</li><li>Communication digitale auprès des visiteurs (SMS, push, e-mail)</li><li>Sensibilisation à l'IA conversationnelle et aux chatbots FAQ</li><li>Bonnes pratiques de cybersécurité et conformité RGPD</li></ul>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPTIONS -->
+  <section class="section">
+    <div class="section__inner">
+      <div class="section__label">OPTIONS<br>70 H · 1 MIN.</div>
+      <div>
+        <h2 class="section__heading">Trois spécialisations métier<br>reconnues par la branche.</h2>
+        <p class="section__body" style="margin-bottom: 40px;">Chaque option correspond à une famille de métiers du secteur. Au moins une option doit être validée pour obtenir le TFP ; les candidats peuvent en valider deux ou trois pour un parcours élargi (jusqu'à 365 heures).</p>
+
+        <div class="options-grid">
+
+          <div class="option-card">
+            <div class="option-card__head"><span class="option-card__label">OPTION A · 70 H</span><span class="option-card__hours">4 MODULES</span></div>
+            <h3 class="option-card__title">Animation et supervision d'attractions</h3>
+
+            <details>
+              <summary><span class="module-num">A.1</span><span class="module-title">Fonctionnement et contrôle des attractions</span><span class="module-hours">20 H</span><span class="module-toggle">+</span></summary>
+              <div class="module-body"><h4>CONTENUS</h4><ul><li>Typologie des attractions et équipements de loisirs</li><li>Principes de fonctionnement des attractions</li><li>Contrôles de sécurité avant ouverture</li><li>Procédures de mise en route et d'arrêt</li><li>Maintenance de premier niveau</li><li>Signalement des dysfonctionnements</li><li>Registres et documents techniques</li></ul></div>
+            </details>
+
+            <details>
+              <summary><span class="module-num">A.2</span><span class="module-title">Animation de groupes et activités</span><span class="module-hours">20 H</span><span class="module-toggle">+</span></summary>
+              <div class="module-body"><h4>CONTENUS</h4><ul><li>Techniques d'animation de groupes</li><li>Adaptation des animations selon les publics</li><li>Règles du jeu et consignes de sécurité</li><li>Dynamisation de l'expérience visiteur</li><li>Gestion du timing et du rythme des activités</li><li>Animation d'activités thématiques</li></ul></div>
+            </details>
+
+            <details>
+              <summary><span class="module-num">A.3</span><span class="module-title">Gestion opérationnelle d'une zone d'attraction</span><span class="module-hours">15 H</span><span class="module-toggle">+</span></summary>
+              <div class="module-body"><h4>CONTENUS</h4><ul><li>Organisation d'une zone d'activités</li><li>Gestion des flux et des rotations</li><li>Coordination avec les autres zones</li><li>Gestion des réclamations spécifiques</li><li>Reporting et remontées d'informations</li><li>Amélioration continue de l'expérience</li></ul></div>
+            </details>
+
+            <details>
+              <summary><span class="module-num">A.4</span><span class="module-title">Médiation et accompagnement des publics</span><span class="module-hours">15 H</span><span class="module-toggle">+</span></summary>
+              <div class="module-body"><h4>CONTENUS</h4><ul><li>Techniques de médiation</li><li>Accompagnement des publics à besoins spécifiques</li><li>Valorisation du contenu des activités</li><li>Storytelling et mise en scène</li><li>Gestion des appréhensions et des peurs</li><li>Création de souvenirs positifs</li></ul></div>
+            </details>
+          </div>
+
+          <div class="option-card">
+            <div class="option-card__head"><span class="option-card__label">OPTION B · 70 H</span><span class="option-card__hours">4 MODULES</span></div>
+            <h3 class="option-card__title">Service en restauration rapide</h3>
+
+            <details>
+              <summary><span class="module-num">B.1</span><span class="module-title">Hygiène alimentaire et HACCP</span><span class="module-hours">20 H</span><span class="module-toggle">+</span></summary>
+              <div class="module-body"><h4>CONTENUS</h4><ul><li>Réglementation en matière d'hygiène alimentaire</li><li>Méthode HACCP : principes et application</li><li>Bonnes pratiques d'hygiène (BPH)</li><li>Chaîne du froid et traçabilité</li><li>Nettoyage et désinfection</li><li>Gestion des allergènes</li><li>Autocontrôles et enregistrements</li></ul></div>
+            </details>
+
+            <details>
+              <summary><span class="module-num">B.2</span><span class="module-title">Techniques de préparation et service</span><span class="module-hours">25 H</span><span class="module-toggle">+</span></summary>
+              <div class="module-body"><h4>CONTENUS</h4><ul><li>Techniques de préparation culinaire simple</li><li>Assemblage et dressage des produits</li><li>Utilisation des équipements de cuisine</li><li>Organisation du poste de travail</li><li>Service au comptoir et en salle</li><li>Gestion du temps et de la rapidité</li><li>Qualité de présentation des produits</li></ul></div>
+            </details>
+
+            <details>
+              <summary><span class="module-num">B.3</span><span class="module-title">Gestion des flux en restauration</span><span class="module-hours">15 H</span><span class="module-toggle">+</span></summary>
+              <div class="module-body"><h4>CONTENUS</h4><ul><li>Analyse des flux clients</li><li>Organisation du service en période de pointe</li><li>Gestion des files d'attente</li><li>Coordination cuisine/service</li><li>Anticipation des besoins</li><li>Gestion des ruptures de stock</li></ul></div>
+            </details>
+
+            <details>
+              <summary><span class="module-num">B.4</span><span class="module-title">Encaissement et relation client</span><span class="module-hours">10 H</span><span class="module-toggle">+</span></summary>
+              <div class="module-body"><h4>CONTENUS</h4><ul><li>Utilisation des systèmes de caisse</li><li>Encaissement multi-moyens de paiement</li><li>Rendu de monnaie et clôture de caisse</li><li>Relation client en restauration</li><li>Gestion des réclamations</li><li>Vente additionnelle</li></ul></div>
+            </details>
+          </div>
+
+          <div class="option-card">
+            <div class="option-card__head"><span class="option-card__label">OPTION C · 70 H</span><span class="option-card__hours">4 MODULES</span></div>
+            <h3 class="option-card__title">Vente en site de loisirs et culturel</h3>
+
+            <details>
+              <summary><span class="module-num">C.1</span><span class="module-title">Techniques de vente et conseil</span><span class="module-hours">20 H</span><span class="module-toggle">+</span></summary>
+              <div class="module-body"><h4>CONTENUS</h4><ul><li>Étapes de la vente</li><li>Découverte des besoins clients</li><li>Argumentation et traitement des objections</li><li>Techniques de conclusion de vente</li><li>Conseil personnalisé</li><li>Fidélisation client</li></ul></div>
+            </details>
+
+            <details>
+              <summary><span class="module-num">C.2</span><span class="module-title">Gestion de caisse et billetterie</span><span class="module-hours">15 H</span><span class="module-toggle">+</span></summary>
+              <div class="module-body"><h4>CONTENUS</h4><ul><li>Fonctionnement des systèmes de caisse</li><li>Encaissement et moyens de paiement</li><li>Gestion de la billetterie</li><li>Réservations et préventes</li><li>Ouverture et clôture de caisse</li><li>Traitement des écarts de caisse</li><li>Gestion des avoirs et remboursements</li></ul></div>
+            </details>
+
+            <details>
+              <summary><span class="module-num">C.3</span><span class="module-title">Merchandising et mise en valeur</span><span class="module-hours">15 H</span><span class="module-toggle">+</span></summary>
+              <div class="module-body"><h4>CONTENUS</h4><ul><li>Principes du merchandising</li><li>Implantation et facing des produits</li><li>Théâtralisation de l'offre</li><li>Signalétique et PLV</li><li>Gestion des stocks en surface de vente</li><li>Rotation des produits</li><li>Mise en avant des promotions</li></ul></div>
+            </details>
+
+            <details>
+              <summary><span class="module-num">C.4</span><span class="module-title">Vente additionnelle et fidélisation</span><span class="module-hours">20 H</span><span class="module-toggle">+</span></summary>
+              <div class="module-body"><h4>CONTENUS</h4><ul><li>Techniques de vente additionnelle (up-selling, cross-selling)</li><li>Connaissance des offres et tarifs</li><li>Proposition de formules et packages</li><li>Programmes de fidélité</li><li>Promotion des événements et nouveautés</li><li>Analyse des ventes et objectifs commerciaux</li></ul></div>
+            </details>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATION -->
+  <section class="section section--white">
+    <div class="section__inner">
+      <div class="section__label">CERTIFICATION<br>15 H</div>
+      <div>
+        <h2 class="section__heading">Quatre épreuves<br>conformes au référentiel CPNEF.</h2>
+        <div class="section__body"><p>La validation du TFP requiert les deux blocs obligatoires du tronc commun, le module transversal, et au minimum une option spécialisée. Les évaluations sont réalisées conformément au référentiel d'évaluation défini par la CPNEF ELAC.</p></div>
+
+        <div style="margin-top: 32px;">
+          <details>
+            <summary><span class="module-num">5.1</span><span class="module-title">Évaluations en cours de formation</span><span class="module-hours">ECF</span><span class="module-toggle">+</span></summary>
+            <div class="module-body"><ul><li>Contrôle continu des acquis par module, tout au long du parcours</li></ul></div>
+          </details>
+          <details>
+            <summary><span class="module-num">5.2</span><span class="module-title">Mises en situation professionnelle</span><span class="module-hours">PRATIQUE</span><span class="module-toggle">+</span></summary>
+            <div class="module-body"><ul><li>Épreuves pratiques reconstituant des situations de travail réelles, sur les sites pilotes Gravity Space</li></ul></div>
+          </details>
+          <details>
+            <summary><span class="module-num">5.3</span><span class="module-title">Dossier professionnel</span><span class="module-hours">ÉCRIT</span><span class="module-toggle">+</span></summary>
+            <div class="module-body"><ul><li>Présentation des activités réalisées en entreprise, élaborée par le candidat</li></ul></div>
+          </details>
+          <details>
+            <summary><span class="module-num">5.4</span><span class="module-title">Entretien final avec le jury</span><span class="module-hours">ORAL</span><span class="module-toggle">+</span></summary>
+            <div class="module-body"><ul><li>Échange avec le jury sur le parcours et les compétences développées</li></ul></div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLIC / FORMAT -->
+  <section class="section section--dark">
+    <div class="section__inner">
+      <div class="section__label">PUBLIC<br>&amp; FORMAT</div>
+      <div class="duo">
+        <div class="duo__item">
+          <h3>POUR QUI</h3>
+          <ul>
+            <li>Salariés du secteur en montée en compétences</li>
+            <li>Demandeurs d'emploi en reconversion</li>
+            <li>Jeunes en insertion professionnelle</li>
+            <li>Contrats de professionnalisation</li>
+            <li>Candidats à la VAE (parcours adapté)</li>
+          </ul>
+        </div>
+        <div class="duo__item">
+          <h3>FORMAT</h3>
+          <ul>
+            <li>Sessions de 6 à 12 participants</li>
+            <li>Alternance ou formation continue</li>
+            <li>Sites pilotes Gravity Space — Var</li>
+            <li>Tronc commun + 1 option : 235 h</li>
+            <li>Parcours étendu jusqu'à 365 h</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINANCEMENT -->
+  <section class="section section--white">
+    <div class="section__inner">
+      <div class="section__label">FINANCEMENT</div>
+      <div>
+        <h2 class="section__heading">Cinq dispositifs<br>de prise en charge.</h2>
+        <p class="section__body">La formation peut être financée par les dispositifs suivants, mobilisables selon votre statut et votre situation.</p>
+
+        <div class="funding">
+          <div class="funding__item"><div class="funding__name">OPCO</div><div class="funding__desc">Contrat de professionnalisation, selon les forfaits en vigueur de la branche.</div></div>
+          <div class="funding__item"><div class="funding__name">PLAN ENTREPRISE</div><div class="funding__desc">Plan de développement des compétences, financement direct par l'employeur.</div></div>
+          <div class="funding__item"><div class="funding__name">CPF</div><div class="funding__desc">Compte Personnel de Formation, après inscription du TFP au RNCP.</div></div>
+          <div class="funding__item"><div class="funding__name">FONDS ELAC</div><div class="funding__desc">Fonds conventionnels selon les accords de branche ELAC.</div></div>
+          <div class="funding__item"><div class="funding__name">FRANCE TRAVAIL</div><div class="funding__desc">POEI, AFPR et autres dispositifs pour demandeurs d'emploi.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="cta">
+      <h2 class="cta__title">Premières sessions :<br>septembre 2026.</h2>
+      <p class="cta__text">Pour recevoir le dossier complet (calendrier des sessions, tarifs, montage de financement par profil) ou inscrire vos équipes, contactez-moi directement.</p>
+      <a href="mailto:contact@benjaminchevalier.fr?subject=TFP Employé de site de loisirs et de culture" class="button">DEMANDER LE DOSSIER</a>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <svg class="site-footer__logo" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+      <line x1="55" y1="55" x2="345" y2="55" stroke="#ffffff" stroke-width="0.75"/>
+      <text x="200" y="102" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="200" fill="#ffffff" letter-spacing="14">CHEVALIER</text>
+      <line x1="55" y1="122" x2="345" y2="122" stroke="#ffffff" stroke-width="0.75"/>
+      <text x="200" y="152" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="400" fill="#cccccc" letter-spacing="7">GROUPE</text>
+    </svg>
+    <div class="site-footer__copy">CHEVALIER GROUPE · 2026</div>
+  </footer>
+
+</body>
+</html>
