@@ -112,6 +112,44 @@
     .site-footer__logo { width: 200px; margin: 0 auto 32px; display: block; }
     .site-footer__copy { font-size: 10px; letter-spacing: 3px; }
 
+    /* BLUR OVERLAY */
+    .blurred { filter: blur(6px); pointer-events: none; user-select: none; }
+    .blur-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(250, 250, 247, 0.4);
+    }
+    .blur-overlay__title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 300;
+      color: #0a0a0a;
+      letter-spacing: -0.3px;
+      margin-bottom: 16px;
+    }
+    .blur-overlay__sub {
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: #6b6b6b;
+    }
+    .blur-overlay__back {
+      margin-top: 40px;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      color: #0a0a0a;
+      border: 0.5px solid rgba(0, 0, 0, 0.3);
+      padding: 18px 36px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    .blur-overlay__back:hover { background: #0a0a0a; color: #ffffff; opacity: 1; }
+
     /* MOBILE */
     @media (max-width: 768px) {
       .site-header__inner { padding: 20px 24px; }
@@ -132,6 +170,14 @@
   </style>
 </head>
 <body>
+
+  <div class="blur-overlay">
+    <div class="blur-overlay__title">Bientôt disponible</div>
+    <div class="blur-overlay__sub">PROGRAMME EN COURS DE FINALISATION</div>
+    <a href="index.html" class="blur-overlay__back">RETOUR À L'ACCUEIL</a>
+  </div>
+
+  <div class="blurred">
 
   <header class="site-header">
     <div class="site-header__inner">
@@ -544,6 +590,8 @@
     </svg>
     <div class="site-footer__copy">CHEVALIER GROUPE · 2026</div>
   </footer>
+
+  </div><!-- .blurred -->
 
 </body>
 </html>
