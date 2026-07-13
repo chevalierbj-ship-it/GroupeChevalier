@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Benjamin Chevalier — entrepreneur des espaces de loisirs, président de SPACE, fondateur de Gravity Space.">
+  <meta name="theme-color" content="#fafaf7">
+  <title>À propos — Benjamin Chevalier</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 300; color: #0a0a0a; background: #fafaf7; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; transition: opacity 0.3s ease; }
+    a:hover { opacity: 0.6; }
+
+    /* HEADER */
+    .site-header { position: sticky; top: 0; z-index: 100; background: rgba(250, 250, 247, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 0.5px solid rgba(0, 0, 0, 0.06); }
+    .site-header__inner { max-width: 1200px; margin: 0 auto; padding: 24px 40px; display: flex; justify-content: space-between; align-items: center; }
+    .site-header__brand { font-size: 11px; font-weight: 400; letter-spacing: 4px; }
+    .site-header__nav { display: flex; gap: 32px; }
+    .site-header__nav a { font-size: 11px; font-weight: 400; letter-spacing: 2px; color: #4a4a4a; }
+    .site-header__nav a.active { color: #0a0a0a; }
+
+    /* HERO */
+    .hero { max-width: 1080px; margin: 0 auto; padding: 120px 40px 80px; display: grid; grid-template-columns: 280px 1fr; gap: 80px; align-items: start; }
+    .hero__eyebrow { font-size: 10px; letter-spacing: 4px; color: #9a9a9a; margin-bottom: 32px; }
+    .hero__title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(36px, 5vw, 56px); font-weight: 300; line-height: 1.15; letter-spacing: -0.4px; margin-bottom: 32px; }
+    .hero__bio { font-size: 15px; font-weight: 300; color: #4a4a4a; line-height: 1.85; max-width: 600px; }
+    .hero__bio p + p { margin-top: 16px; }
+    .hero__photo { width: 100%; aspect-ratio: 3 / 4; background: #e8e8e4; display: flex; align-items: center; justify-content: center; }
+    .hero__photo-placeholder { font-size: 10px; letter-spacing: 3px; color: #9a9a9a; }
+
+    /* SECTION */
+    .section { padding: 90px 40px; }
+    .section--white { background: #ffffff; }
+    .section--dark { background: #0a0a0a; color: #ffffff; }
+    .section__inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 180px 1fr; gap: 60px; }
+    .section__label { font-size: 10px; font-weight: 400; letter-spacing: 4px; color: #9a9a9a; padding-top: 4px; line-height: 1.6; }
+    .section--dark .section__label { color: #888888; }
+    .section__heading { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(28px, 4vw, 40px); font-weight: 300; line-height: 1.2; margin-bottom: 28px; letter-spacing: -0.3px; }
+
+    /* TIMELINE */
+    .timeline { display: flex; flex-direction: column; }
+    .timeline__item { display: grid; grid-template-columns: 80px 1fr; gap: 32px; padding: 24px 0; border-bottom: 0.5px solid rgba(0, 0, 0, 0.08); }
+    .timeline__item:last-child { border-bottom: none; }
+    .timeline__year { font-size: 13px; font-weight: 500; color: #0a0a0a; padding-top: 2px; }
+    .timeline__content {}
+    .timeline__title { font-size: 15px; font-weight: 500; color: #0a0a0a; margin-bottom: 4px; }
+    .timeline__desc { font-size: 13px; font-weight: 300; color: #6b6b6b; line-height: 1.7; }
+
+    /* PRESSE */
+    .press-list { display: flex; flex-direction: column; }
+    .press-item { display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: baseline; padding: 28px 0; border-bottom: 0.5px solid rgba(255, 255, 255, 0.1); transition: padding 0.3s ease; }
+    .press-item:hover { padding-left: 8px; }
+    .press-item:last-child { border-bottom: none; }
+    .press__media { font-size: 10px; letter-spacing: 3px; color: #888888; margin-bottom: 8px; }
+    .press__title { font-size: 16px; font-weight: 400; color: #ffffff; }
+    .press__date { font-size: 11px; letter-spacing: 2px; color: #888888; white-space: nowrap; }
+    .press__arrow { font-size: 14px; color: #888888; transition: transform 0.3s ease; }
+    .press-item:hover .press__arrow { transform: translate(4px, -4px); color: #ffffff; }
+    .press__right { display: flex; align-items: baseline; gap: 16px; }
+
+    /* CONTACT PRESSE */
+    .press-contact { margin-top: 48px; padding-top: 48px; border-top: 0.5px solid rgba(255, 255, 255, 0.1); }
+    .press-contact__label { font-size: 10px; letter-spacing: 3px; color: #888888; margin-bottom: 12px; }
+    .press-contact__text { font-size: 14px; font-weight: 300; color: #cccccc; line-height: 1.8; }
+    .press-contact__text a { border-bottom: 0.5px solid rgba(255, 255, 255, 0.3); }
+    .press-contact__text a:hover { opacity: 0.6; }
+
+    /* FOOTER */
+    .site-footer { background: #0a0a0a; color: #888888; padding: 80px 40px 48px; text-align: center; }
+    .site-footer__logo { width: 200px; margin: 0 auto 32px; display: block; }
+    .site-footer__copy { font-size: 10px; letter-spacing: 3px; }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .site-header__inner { padding: 20px 24px; }
+      .site-header__nav { gap: 18px; }
+      .site-header__nav a { font-size: 10px; letter-spacing: 1.5px; }
+      .hero { padding: 70px 24px 50px; grid-template-columns: 1fr; gap: 40px; }
+      .hero__photo { max-width: 240px; }
+      .section { padding: 60px 24px; }
+      .section__inner { grid-template-columns: 1fr; gap: 32px; }
+      .timeline__item { grid-template-columns: 60px 1fr; gap: 20px; }
+      .press-item { grid-template-columns: 1fr; gap: 8px; }
+      .press__right { justify-content: flex-start; }
+      .press-item:hover { padding-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="index.html" class="site-header__brand">BENJAMIN CHEVALIER</a>
+      <nav class="site-header__nav">
+        <a href="index.html#projets">PROJETS</a>
+        <a href="formation.html">FORMATION</a>
+        <a href="apropos.html" class="active">À PROPOS</a>
+        <a href="index.html#contact">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__photo">
+      <span class="hero__photo-placeholder">PHOTO À VENIR</span>
+    </div>
+    <div>
+      <div class="hero__eyebrow">ENTREPRENEUR · VAR</div>
+      <h1 class="hero__title">Benjamin Chevalier</h1>
+      <div class="hero__bio">
+        <p>Entrepreneur dans le secteur des loisirs depuis près de dix ans, je conçois, lance et exploite des espaces où les visiteurs reviennent — parce qu'ils y ont vécu quelque chose.</p>
+        <p>Fondateur de Gravity Space, président de SPACE (association française des espaces de loisirs indoor), je porte aujourd'hui la première formation certifiante du secteur et développe des outils numériques au service de l'expérience visiteur.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARCOURS -->
+  <section class="section section--white">
+    <div class="section__inner">
+      <div class="section__label">PARCOURS</div>
+      <div>
+        <h2 class="section__heading">Les jalons.</h2>
+        <div class="timeline">
+
+          <div class="timeline__item">
+            <div class="timeline__year">2017</div>
+            <div class="timeline__content">
+              <div class="timeline__title">Création de Gravity Space</div>
+              <div class="timeline__desc">Ouverture du premier parc de trampoline indoor à La Garde (Var).</div>
+            </div>
+          </div>
+
+          <div class="timeline__item">
+            <div class="timeline__year">2019</div>
+            <div class="timeline__content">
+              <div class="timeline__title">Deuxième site — La Seyne-sur-Mer</div>
+              <div class="timeline__desc">Extension du réseau Gravity Space avec un second parc dans le Var.</div>
+            </div>
+          </div>
+
+          <div class="timeline__item">
+            <div class="timeline__year">2022</div>
+            <div class="timeline__content">
+              <div class="timeline__title">Présidence de SPACE</div>
+              <div class="timeline__desc">Élu président de l'association française des espaces de loisirs indoor.</div>
+            </div>
+          </div>
+
+          <div class="timeline__item">
+            <div class="timeline__year">2024</div>
+            <div class="timeline__content">
+              <div class="timeline__title">Entre Amis ou en Famille</div>
+              <div class="timeline__desc">Lancement d'une plateforme de ressources pour les gérants de parcs de loisirs en France.</div>
+            </div>
+          </div>
+
+          <div class="timeline__item">
+            <div class="timeline__year">2025</div>
+            <div class="timeline__content">
+              <div class="timeline__title">Formation TFP — Avenant n°75</div>
+              <div class="timeline__desc">Conception du premier programme de formation certifiante pour les employés du secteur ELAC, conforme au référentiel CPNEF.</div>
+            </div>
+          </div>
+
+          <div class="timeline__item">
+            <div class="timeline__year">2026</div>
+            <div class="timeline__content">
+              <div class="timeline__title">Synkro · AllergyPass</div>
+              <div class="timeline__desc">Développement de deux applications : prise de rendez-vous rapide et gestion des allergies alimentaires.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESSE -->
+  <section class="section section--dark">
+    <div class="section__inner">
+      <div class="section__label">PRESSE</div>
+      <div>
+        <h2 class="section__heading" style="color: #ffffff;">Ils en parlent.</h2>
+        <div class="press-list">
+
+          <a href="#" class="press-item">
+            <div>
+              <div class="press__media">LES ÉCHOS</div>
+              <div class="press__title">Article à venir</div>
+            </div>
+            <div class="press__right">
+              <span class="press__date">2026</span>
+              <span class="press__arrow">↗</span>
+            </div>
+          </a>
+
+        </div>
+
+        <div class="press-contact">
+          <div class="press-contact__label">CONTACT PRESSE</div>
+          <div class="press-contact__text">
+            Pour toute demande presse, interview ou intervention :<br>
+            <a href="mailto:contact@benjaminchevalier.fr">contact@benjaminchevalier.fr</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <svg class="site-footer__logo" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+      <line x1="55" y1="55" x2="345" y2="55" stroke="#ffffff" stroke-width="0.75"/>
+      <text x="200" y="102" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="200" fill="#ffffff" letter-spacing="14">CHEVALIER</text>
+      <line x1="55" y1="122" x2="345" y2="122" stroke="#ffffff" stroke-width="0.75"/>
+      <text x="200" y="152" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="400" fill="#cccccc" letter-spacing="7">GROUPE</text>
+    </svg>
+    <div class="site-footer__copy">CHEVALIER GROUPE · 2026</div>
+  </footer>
+
+</body>
+</html>
