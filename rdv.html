@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Prendre rendez-vous avec Benjamin Chevalier.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#fafaf7">
+  <title>Rendez-vous — Benjamin Chevalier</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 300; color: #0a0a0a; background: #fafaf7; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; transition: opacity 0.3s ease; }
+    a:hover { opacity: 0.6; }
+
+    /* HEADER */
+    .site-header { position: sticky; top: 0; z-index: 100; background: rgba(250, 250, 247, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 0.5px solid rgba(0, 0, 0, 0.06); }
+    .site-header__inner { max-width: 1200px; margin: 0 auto; padding: 24px 40px; display: flex; justify-content: space-between; align-items: center; }
+    .site-header__brand { font-size: 11px; font-weight: 400; letter-spacing: 4px; }
+    .site-header__nav { display: flex; gap: 32px; }
+    .site-header__nav a { font-size: 11px; font-weight: 400; letter-spacing: 2px; color: #4a4a4a; }
+
+    /* HERO */
+    .hero { max-width: 900px; margin: 0 auto; padding: 32px 40px 12px; text-align: center; }
+    .hero__eyebrow { font-size: 10px; letter-spacing: 4px; color: #9a9a9a; margin-bottom: 12px; }
+    .hero__title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: clamp(28px, 3.8vw, 40px); font-weight: 300; line-height: 1.15; letter-spacing: -0.4px; margin-bottom: 12px; }
+    .hero__lede { font-size: 14px; font-weight: 300; color: #4a4a4a; line-height: 1.65; max-width: 520px; margin: 0 auto; }
+
+    /* CAL WIDGET */
+    .cal-wrap { max-width: 1080px; margin: 0 auto; padding: 4px 40px 64px; }
+    .cal-inline { width: 100%; min-height: 700px; overflow: hidden; }
+
+    /* FOOTER */
+    .site-footer { background: #0a0a0a; color: #888888; padding: 80px 40px 48px; text-align: center; }
+    .site-footer__logo { width: 200px; margin: 0 auto 32px; display: block; }
+    .site-footer__copy { font-size: 10px; letter-spacing: 3px; }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .site-header__inner { padding: 20px 24px; }
+      .site-header__nav { gap: 18px; }
+      .site-header__nav a { font-size: 10px; letter-spacing: 1.5px; }
+      .hero { padding: 24px 24px 8px; }
+      .cal-wrap { padding: 4px 16px 40px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="index.html" class="site-header__brand">BENJAMIN CHEVALIER</a>
+      <nav class="site-header__nav">
+        <a href="index.html#projets">PROJETS</a>
+        <a href="formation.html">FORMATION</a>
+        <a href="apropos.html">À PROPOS</a>
+        <a href="index.html#contact">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero__eyebrow">AGENDA</div>
+    <h1 class="hero__title">Prendre rendez-vous.</h1>
+    <p class="hero__lede">Choisissez ci-dessous le motif du rendez-vous. Vous serez guidé vers un créneau disponible.</p>
+  </section>
+
+  <div class="cal-wrap">
+    <div class="cal-inline" id="my-cal-inline"></div>
+  </div>
+
+  <footer class="site-footer">
+    <svg class="site-footer__logo" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+      <line x1="55" y1="55" x2="345" y2="55" stroke="#ffffff" stroke-width="0.75"/>
+      <text x="200" y="102" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="30" font-weight="200" fill="#ffffff" letter-spacing="14">CHEVALIER</text>
+      <line x1="55" y1="122" x2="345" y2="122" stroke="#ffffff" stroke-width="0.75"/>
+      <text x="200" y="152" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="400" fill="#cccccc" letter-spacing="7">GROUPE</text>
+    </svg>
+    <div class="site-footer__copy">CHEVALIER GROUPE · 2026</div>
+  </footer>
+
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.eu/embed/embed.js", "Cal");
+    Cal("init", { origin: "https://cal.eu" });
+    Cal("inline", {
+      elementOrSelector: "#my-cal-inline",
+      calLink: "benjamin-cvl",
+      layout: "month_view"
+    });
+    Cal("ui", {
+      theme: "light",
+      cssVarsPerTheme: { light: { "cal-brand": "#0a0a0a" } },
+      hideEventTypeDetails: false,
+      layout: "month_view"
+    });
+  </script>
+  <script>window.addEventListener('pageshow', function () { window.scrollTo(0, 0); });</script>
+</body>
+</html>
